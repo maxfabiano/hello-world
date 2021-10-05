@@ -1,0 +1,12 @@
+node {
+        stage('Git Chekout') {
+            git branch: 'master', url: 'https://github.com/maxfabiano/hello-world.git'
+        
+            }
+            stage('Composer') {
+                sh 'composer install'
+            }
+            stage('PHPUnit'){
+                sh 'vendor/bin/phpunit'
+            }
+}
